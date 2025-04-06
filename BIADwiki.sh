@@ -12,11 +12,11 @@ cd R
 Rscript controller.R > controller.Rout_$DATE
 ## this should be changed and use a symlink to the last, but this will need adjustmenet depending on the docker
 scp -P 2222 controller.Rout_$DATE tunnel@biad.cloud:/media/biad/controller_last.txt
-mv controller.Rout_$DATE ../../logs/
+mv controller.Rout_$DATE $LOGS_FOLDER
 cd ..
 
 # backup files in dropplet scp tunnel
-for fold in logs templates summary_stats table_comments ;
+for fold in templates summary_stats table_comments ;
 do
     rsync -avz -e "ssh -p 2222" tools/$fold tunnel@biad.cloud:/media/biad/
 done
