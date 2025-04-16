@@ -1,2 +1,2 @@
 "","ABotIsoID","PhaseID","SampleID","ItemID","TaxonCode","anatomy","preservation","preservation_score","number_of_samples","sample_notes","δ13C(‰)","δ13C_corrected(‰)","δ15N(‰)","δ15N_corrected(‰)","Δ13C_difference(‰)","C(%)","N(%)","C/N","CitationID","time_added","user_added","time_last_update","user_last_update"
-"1","ID100993","IBGEN","AMB03","Ite-11502","TRITDIC","seed/grain","burnt: charred","P2",8,"with acid-base-acid pretreatment",-24.8,-24.9,7,6.9,NA,NA,NA,NA,"muell2019a","2022-08-04 12:54:10","adrian@localhost","2022-08-04 12:54:10","adrian@localhost"
+"1","ID100993","IBGEN","AMB03","Ite-11502","TRITDIC","seed/grain","burnt: charred","P2",8,"with acid-base-acid pretreatment",-24.8,-24.9,7,6.9,19,42.2,2.8,17.4,"muell2019a",NA,NA,NA,NA
