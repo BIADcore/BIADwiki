@@ -17,14 +17,14 @@ DATE=$(date +%Y%m%d)
 # run R scripts
 echo -e "Starting BIADwiki/controller.R"
 cd R
-Rscript controller.R > BIADwiki.controller.Rout_$DATE
+Rscript controller.R > ${LOGS_FOLDER}/BIADwiki.controller.Rout_$DATE
 cd ..
 echo -e "Ending BIADwiki/controller.R"
 
 # this should be changed and use a symlink to the last, but this will need adjustmenet depending on the docker
-scp -P 2222 BIADwiki.controller.Rout_$DATE tunnel@biad.cloud:/media/biad/BIADwiki.controller_last.txt
-mv BIADwiki.controller.Rout_$DATE $LOGS_FOLDER
-cd ..
+echo -e "upload biadwiki log todocker"
+scp -P 2222 ${LOGS_FOLDER}/BIADwiki.controller.Rout_$DATE tunnel@biad.cloud:/media/biad/BIADwiki.controller_last.txt
+echo -e "upload biadwiki log todocker"
 
 # backup files in droplet scp tunnel
 for fold in templates summary_stats table_comments ;
