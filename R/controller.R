@@ -4,7 +4,7 @@
 # install BIADconnect if required
 if(!'BIADconnect'%in%installed.packages())install.packages("~/BIADconnect/", repos = NULL, type = "source")
 require(BIADconnect)
-source('functions.R')
+source('../../BIADadmin/R/functions.R')
 #------------------------------------------------------------------
 conn  <-  init.conn()
 cat(paste('BIAD check routine started on:\n',date(),'\n'))
