@@ -7,10 +7,10 @@
 # https://biadwiki.org/en/connectR
 # ensure you have opened a tunnel first (e.g. putty)
 #--------------------------------------------------------------------------------------
-source("https://raw.githubusercontent.com/BIADwiki/BIADwiki/main/R/functions.R")
+require(BIADconnect)
 conn  <-  init.conn()
 #--------------------------------------------------------------------------------------
-x <- get.relatives(table.name = 'Sites', primary.value = 'S10050') 
+x <- get.relatives(table.name = 'Sites', primary.value = 'S10671') 
 
 x # look at the data
 
