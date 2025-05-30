@@ -3,15 +3,13 @@
 # Example R script for querying BIAD
 #--------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------
-# Requirements first read:
 # https://biadwiki.org/en/connectR
-# 1. ensure you have opened a tunnel first (e.g. putty)
-# 2. ensure you have installed BIADconnect
+# ensure you have installed BIADconnect
+# devtools::install_github("BIADcore/BIADconnect")
 #--------------------------------------------------------------------------------------
-if(!'BIADconnect'%in%installed.packages())devtools::install_github("BIADwiki/BIADconnect")
 require(BIADconnect)
 conn  <-  init.conn()
-#--------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------#--------------------------------------------------------------------------------------
 # Example 1
 #--------------------------------------------------------------------------------------
 sql.command <- "SELECT * FROM `Sites`"
@@ -91,9 +89,7 @@ query3 <- query.database("SELECT * FROM `C14Samples`", conn=conn)
 
 m1 <- merge(query1, query2, by = "SiteID")
 m2 <- merge(m1, query3, by = "PhaseID")
-
 head(m2)
-
 #--------------------------------------------------------------------------------------
 # Example 9: country-based distribution of aDNA samples per country
 #--------------------------------------------------------------------------------------

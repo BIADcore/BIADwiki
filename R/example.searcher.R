@@ -3,13 +3,13 @@
 # # query any table with a primary key value, to get all direct relationships 
 #--------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------
-# Requirements first read:
 # https://biadwiki.org/en/connectR
-# ensure you have opened a tunnel first (e.g. putty)
+# ensure you have installed BIADconnect
+# devtools::install_github("BIADcore/BIADconnect")
 #--------------------------------------------------------------------------------------
 require(BIADconnect)
 conn  <-  init.conn()
-#--------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------#--------------------------------------------------------------------------------------
 x <- get.relatives(table.name = 'Sites', primary.value = 'S10671') 
 
 x # look at the data

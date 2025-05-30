@@ -4,16 +4,13 @@
 # Example: radiocarbon dates
 #--------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------
-# Requirements first read:
 # https://biadwiki.org/en/connectR
-# 1. ensure you have opened a tunnel first (e.g. putty)
-# 2. ensure you have installed BIADconnect
+# ensure you have installed BIADconnect
+# devtools::install_github("BIADcore/BIADconnect")
 #--------------------------------------------------------------------------------------
-if(!'BIADconnect'%in%installed.packages())devtools::install_github("BIADwiki/BIADconnect")
 require(BIADconnect)
 conn  <-  init.conn()
-#--------------------------------------------------------------------------------------
-# query the requested dataset
+#--------------------------------------------------------------------------------------# query the requested dataset
 sql.command <- "SELECT *
 FROM C14Samples
 INNER JOIN `Sites` ON `C14Samples`.`SiteID` = `Sites`.`SiteID`
