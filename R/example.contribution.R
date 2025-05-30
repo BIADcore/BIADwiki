@@ -7,7 +7,7 @@
 # Requirements first read:
 # https://biadwiki.org/en/connectR
 # 1. ensure you have opened a tunnel first (e.g. putty)
-# 2. eusure you have installed BIADconnect
+# 2. ensure you have installed BIADconnect
 #--------------------------------------------------------------------------------------
 if(!'BIADconnect'%in%installed.packages())devtools::install_github("BIADwiki/BIADconnect")
 require(BIADconnect)

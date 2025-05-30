@@ -5,9 +5,11 @@
 #--------------------------------------------------------------------------------------
 # Requirements first read:
 # https://biadwiki.org/en/connectR
-# ensure you have opened a tunnel first (e.g. putty)
+# 1. ensure you have opened a tunnel first (e.g. putty)
+# 2. ensure you have installed BIADconnect
 #--------------------------------------------------------------------------------------
-source("https://raw.githubusercontent.com/BIADwiki/BIADwiki/main/R/functions.R")
+if(!'BIADconnect'%in%installed.packages())devtools::install_github("BIADwiki/BIADconnect")
+require(BIADconnect)
 conn  <-  init.conn()
 #--------------------------------------------------------------------------------------
 # Example 1
@@ -17,7 +19,6 @@ query <- query.database(sql.command, conn=conn)
 
 sql.command <- "SELECT `TABLE_NAME` FROM `information_schema`.`TABLES` WHERE TABLE_SCHEMA='biad' AND `TABLE_TYPE`='BASE TABLE';"
 tables <- query.database(sql.command = sql.command, conn=conn)
-
 #--------------------------------------------------------------------------------------
 # The object 'query' can now be inspected
 #--------------------------------------------------------------------------------------
@@ -58,7 +59,6 @@ query <- query.database("SELECT * FROM `PhaseTypes`", conn=conn)
 type.count <- sort(table(query$Type), decreasing = TRUE)
 View(type.count)
 sum(type.count)
-
 #--------------------------------------------------------------------------------------
 # Example 5: updating the database directly
 #--------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ head(query)
 #--------------------------------------------------------------------------------------
 sql.command <- "SELECT GraveID, Graves.PhaseID, SiteID, Period FROM Graves JOIN Phases ON Graves.PhaseID = Phases.PhaseID GROUP BY GraveID ORDER BY GraveID"
 query <- query.database(sql.command, conn=conn)
-
+head(query)
 #--------------------------------------------------------------------------------------
 # Example 8: get c14 for a culture and country
 #--------------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ query <- query.database(sql.command, conn=conn)
 library(ggplot2)
 ggplot(query, aes(x = Country, y = Frequency)) + 
 	geom_bar(stat="identity") +
-	labs(title = "aDNA samples in BIAD [n=2045") +
+	labs(title = "aDNA samples in BIAD [n=2045]") +
 	coord_flip()
 #--------------------------------------------------------------------------------------
 disconnect()
