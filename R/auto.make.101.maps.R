@@ -149,26 +149,6 @@ points(x, y, col=res$summary$col, pch=16,cex=0.8)
 legend('topleft',res$legend,bty='n',col=res$cols,pch=16,cex=0.7)
 dev.off()
 #-----------------------------------------------------------------
-# human strontium
-#-----------------------------------------------------------------
-sql.command <- "SELECT `Sites`.`SiteID`,`Longitude`,`Latitude`,`StrontiumID` FROM `Sites`
-INNER JOIN `Phases` ON `Sites`.`SiteID`=`Phases`.`SiteID`
-INNER JOIN `Graves` ON `Phases`.`PhaseID`=`Graves`.`PhaseID`
-INNER JOIN `GraveIndividuals` ON `GraveIndividuals`.`GraveID`=`Graves`.`GraveID`
-INNER JOIN `Strontium` ON `Strontium`.`IndividualID`=`GraveIndividuals`.`IndividualID`"
-
-d <- query.database(sql.command = sql.command, conn=conn)
-res <- summary_maker(d)
-x <- res$summary$Longitude
-y <- res$summary$Latitude
-
-svglite(file = '../tools/plots/map.humanstrontium.svg', width = width, height = height )
-plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Human strontium samples')
-map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
-points(x, y, col=res$summary$col, pch=16,cex=0.8)
-legend('topleft',res$legend,bty='n',col=res$cols,pch=16,cex=0.7)
-dev.off()
-#-----------------------------------------------------------------
 # Faunal strontium
 #-----------------------------------------------------------------
 sql.command <- "SELECT `Sites`.`SiteID`,`Longitude`,`Latitude`,`FaunIsoID` FROM `Sites`

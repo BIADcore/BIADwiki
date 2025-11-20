@@ -51,17 +51,5 @@ The R script controller.R runs the auto.make.xxx.R scripts.
 Login credentials for the local server are stored in the .Rprofile and therefore are automatically invoked when the server runs R in admin.
 These scripts will not work if you want to run them externally from the server as a standard user. To fix this issue it is necessary to first load the functions source("https://raw.githubusercontent.com/BIADwiki/BIADwiki/main/R/functions.R") and to replace the "query.database" function with "run.server.query(query.database(sql.command)".
 
-### General example R scripts for users
-All below is now deprecated! don't do that!
-
-Files prefaced 'example.xxxxx.R' are generic example files for end users wishing to interact with BIAD via R, for example when building a script to both query and analyse data.
-Get a github account, then clone the whole repository to your local machine to use the scripts. If you want to collaborate with coding (rather than just use it) you will need to request permission to push, from the database administrator.
-
-### Personal R scipts
-Files prefaced 'private.xxxxx.R' in your cloned repository will not be tracked or saved on Github, and will only exist on your machine.
-
-
-
-
 
 
