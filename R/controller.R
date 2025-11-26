@@ -13,7 +13,3 @@ disconnect()
 
 run.scripts.in.this.folder(pattern='auto.make')
 #------------------------------------------------------------------
-	
-	
-	
-	
