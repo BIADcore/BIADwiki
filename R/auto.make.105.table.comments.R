@@ -8,6 +8,8 @@ d.tables <- query.database(sql.command = sql.command, conn=conn)
 
 sql.command <- "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_schema='BIAD';"	
 d.cols <- query.database(sql.command = sql.command, conn=conn)
+
+disconnect()
 #-----------------------------------------------------------------------------------------
 # get rid of common meta
 #-----------------------------------------------------------------------------------------

@@ -46,8 +46,8 @@ for(n in 1:N){
 	sub <- subset(d.cols, TABLE_NAME==table)
 	i <- grepl('do not manually add value',tolower(sub$COLUMN_COMMENT))
 	example[1,i] <- NA
-	# need to somehow include a BOM
-	write.csv(example, file=paste('../tools/templates/',table,'.csv',sep=''))
+	# ensure a BOM is included!
+	write.csv.utf8.BOM(df = example, filename = paste('../tools/templates/',table,'.csv', sep=''))
 	}
 #--------------------------------------------------------------------------------------
 disconnect()

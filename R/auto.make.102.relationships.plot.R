@@ -15,14 +15,16 @@ copy <- d.tables[grepl('copy', d.tables)]
 standard <- d.tables[!d.tables%in%c(zoptions,zprivate,copy)]
 #------------------------------------------------------------------
 # all relationships
+#------------------------------------------------------------------
 d.tables <- paste(standard, collapse='; ')
-image <- database.relationship.plotter(d.tables, include.look.ups=TRUE, conn=conn)
+image <- database.relationship.plotter(d.tables, include.look.ups=FALSE, conn=conn)
 svg <- export_svg(image)
 writeLines(svg, '../tools/plots/database.relationships.plot.svg')
 #------------------------------------------------------------------
-# set 1
-d.tables <- paste(c('Sites','Phases','C14Samples','Graves','FaunalIsotopes','ABotPhases','StrontiumEnvironment'), collapse='; ')
+# cohort 1
+d.tables <- paste(c('Phases','C14Samples','C14Ghosts','Citations','FaunalBiometrics','FaunalSpecies','Graves','MaterialCulture','Metallurgy','Monuments','PhaseCitation'), collapse='; ')
 image <- database.relationship.plotter(d.tables, include.look.ups=FALSE, conn = conn)
+
 svg <- export_svg(image)
 writeLines(svg, '../tools/plots/database.relationships.plot.sub.1.svg')
 #--------------------------------------------------------------------------------------
