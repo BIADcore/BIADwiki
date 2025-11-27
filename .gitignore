@@ -13,19 +13,14 @@ server.script.R
 # Bloody mac files
 .DS_Store
 
-# files to enable auto emailing
+# any private files or regularly changed files
+tools/*
 gmailr.json
 .secret*
-
-# keys
 .ppk
 .pem
 API.txt
-*.png
-*.svg
-.*.sw?
 controller.Rout*
 *controller.Rout*
 
-# any private files or regularly changed files
-tools/*
+
