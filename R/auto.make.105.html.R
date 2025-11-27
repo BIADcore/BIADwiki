@@ -1,5 +1,9 @@
 #-----------------------------------------------------------------------------------------
-# Generate a summary of row counts etc
+# Generates various .html files to be embedded into the wiki.
+# Typically these are table summaries (prone to regular change) that live in the biadwiki:structure page.
+# Currently displaying the html using iframes, which is a dodgy hack for wiki.js
+# It works, but if an editor changes the preferred edit mode from raw html to one of the the other options, these iframes are lost.
+# A better solution is required, which is likely to come in time from wiki.js development
 #-----------------------------------------------------------------------------------------
 conn  <-  init.conn()
 
