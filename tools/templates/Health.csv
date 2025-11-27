@@ -1,2 +1,2 @@
-"","IndividualID","Trait","Status","Position","Method","trauma_cause","trauma_direction","Notes","CitationID","time_added","user_added","time_last_update","user_last_update"
-"1","C09507","trauma: perforation","present: antemortem","skull","macroscopic examination","piercing","above","look up the image in the publication, I am sure it was a bad hunting accident \s","allen2022a",NA,NA,NA,NA
+﻿"IndividualID","Trait","Status","Location","LaboratoryMethod","trauma_cause","trauma_direction","Notes","CitationID","time_added","user_added","time_last_update","user_last_update"
+"C09507","trauma: perforation","present: antemortem","skull","macroscopic examination","piercing",NULL,NULL,"allen2022a","2023-01-25 14:15:14","robert@localhost",NULL,NULL

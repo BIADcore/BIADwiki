@@ -1,2 +1,2 @@
-"","SiteID","Soil","Plants","SurfaceWater","GroundWater","Fauna","dentine","ice core","min87Sr/86Sr","max87Sr/86Sr","CitationID","notes","time_added","user_added","time_last_update","user_last_update"
-"1","S11228","yes","yes","yes","yes","yes","yes","yes",0.795278,0.720754,"mülle2003a","Modern surface water 0.70565",NA,NA,NA,NA
+﻿"SiteID","Soil","Plants","SurfaceWater","GroundWater","Fauna","dentine","ice core","min87Sr/86Sr","max87Sr/86Sr","CitationID","notes","time_added","user_added","time_last_update","user_last_update"
+"S11228","yes","yes","yes","yes","yes","yes","yes","0.795278","0.720754","mülle2003a","Modern surface water 0.70565",NULL,NULL,NULL,NULL

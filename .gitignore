@@ -26,4 +26,6 @@ API.txt
 .*.sw?
 controller.Rout*
 *controller.Rout*
-tools/logs/*
+
+# any privat files or regularly changed files
+tools/*

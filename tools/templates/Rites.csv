@@ -1,2 +1,2 @@
-"","RiteID","IndividualID","Dismembered","Head","BodyPositioning","BurialSide","BurialOrientationMin","BurialOrientationMax","GraveGoods","Ochre","CitationID","time_added","user_added","time_last_update","user_last_update"
-"1","R00151","C13736","no","yes","extended","back",120,140,"yes","no","ramsl2002a",NA,NA,NA,NA
+﻿"RiteID","IndividualID","Dismembered","Head","BodyPositioning","BurialSide","BurialOrientationMin","BurialOrientationMax","GraveGoods","Ochre","CitationID","time_added","user_added","time_last_update","user_last_update"
+"R00151","C13736","no","yes","extended","back","120","140","yes","no","ramsl2002a",NULL,NULL,NULL,NULL

@@ -1,2 +1,2 @@
-"","FaunSliceID","FaunIsoID","SampleID","SequenceOrder","ERJdistance(mm)"," δ13C_bioapatite(‰)"," δ18O_bioapatite(‰)","CitationID","time_added","user_added","time_last_update","user_last_update"
-"1","SL100431","ID102094","Bos3369",1,51,-11.7,-9.4,"kamja2021a",NA,NA,NA,NA
+﻿"FaunSliceID","FaunIsoID","SampleID","SequenceOrder","ERJdistance(mm)"," δ13C_bioapatite(‰)"," δ18O_bioapatite(‰)","Mean_87Sr/86Sr","Error_87Sr/86Sr","CitationID","time_added","user_added","time_last_update","user_last_update"
+"SL100431","ID102094","Bos3369","1","51","-11.7","-9.4","0.70902","5e-05","kamja2021a",NULL,NULL,NULL,NULL
