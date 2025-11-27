@@ -1,5 +1,6 @@
 #-------------------------------------------------------------------------------
-# Generate a bunch of examples of tables as images, for embedding in wiki
+# Generate a bunch of examples of tables as images, for embedding in biadwiki.org
+# unclear what this is being used for, or if it is even necessary. Check biadwiki.org to investigate
 #-------------------------------------------------------------------------------
 library(gridExtra)
 library(svglite)
@@ -14,7 +15,7 @@ theme <- ttheme_minimal(
 for(table in tables){
 
 	sql.command <- paste("SELECT * FROM BIAD.",table,sep='')
-    d <- query.database(sql.command = sql.command, conn=conn)[1:5,]
+	d <- query.database(sql.command = sql.command, conn=conn)[1:5,]
 	d[is.na(d)] <- '\\N'
 	d$time_added <- '\\N'
 	d$user_added <- '\\N'

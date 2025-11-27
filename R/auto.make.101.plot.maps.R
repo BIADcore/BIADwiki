@@ -10,6 +10,7 @@ require(svglite)
 # sizes for standard maps
 height <- 8
 width <- 15
+folder <- '../tools/plots'
 #-----------------------------------------------------------------
 # overall sites
 #-----------------------------------------------------------------
@@ -35,7 +36,7 @@ geom_sf(data = points, color = 'firebrick', pch=20, size=2) +
 coord_sf(xlim=st_bbox(points$geometry)[c('xmin','xmax')],ylim=st_bbox(points$geometry)[c('ymin','ymax')]) + 
 theme(panel.background=element_rect(fill='steelblue2'))
 
-ggsave(file = '../tools/plots/map.svg', plot=map, width = 20, height = 15 )
+ggsave(file = paste0(folder,'/map.svg'), plot=map, width = 20, height = 15 )
 #-----------------------------------------------------------------
 # aDNA
 #-----------------------------------------------------------------
@@ -50,7 +51,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.aDNA.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.aDNA.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Human aDNA')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -69,7 +70,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.graveindividuals.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.graveindividuals.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Grave individuals')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -87,7 +88,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.faunalspecies.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.faunalspecies.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Faunal Species')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -105,7 +106,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.botanicalspecies.svg', width = width, height = height)
+svglite(file = paste0(folder,'/map.botanicalspecies.svg'), width = width, height = height)
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Botanical Species')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -122,7 +123,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.C14.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.C14.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Radiocarbon dates')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -142,7 +143,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.humanisotopes.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.humanisotopes.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Human isotope samples')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -160,7 +161,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.faunalisotope.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.faunalisotope.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Faunal Isotope samples')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -180,7 +181,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.health.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.health.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Human disease traits')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)
@@ -198,7 +199,7 @@ res <- summary_maker(d)
 x <- res$summary$Longitude
 y <- res$summary$Latitude
 
-svglite(file = '../tools/plots/map.materialculture.svg', width = width, height = height )
+svglite(file = paste0(folder,'/map.materialculture.svg'), width = width, height = height )
 plot(NULL,xlim=xlim,ylim=ylim,frame.plot=F,axes=F, xlab='',ylab='',main='Material culture')
 map('world',xlim=xlim,ylim=ylim,col='grey90',add=T, fill=T, border='grey')
 points(x, y, col=res$summary$col, pch=16,cex=0.8)

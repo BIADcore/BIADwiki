@@ -1,10 +1,13 @@
 #-----------------------------------------------------------------------------------------
-# Pull table summaries from the database, and update github
+# Generates various .csv files as templates for each table, to be downloaded from the biadwiki.org.
+# The csv files are stored as assets on biadwiki.org.
+# Currently displaying these .csv using iframes, which is a dodgy hack for wiki.js
+# It works, but if an editor changes the preferred edit mode from raw html to one of the the other options, these iframes are lost.
+# A better solution is required, which is likely to come in time from wiki.js development
 #-----------------------------------------------------------------------------------------
 conn <- init.conn()
 sql.command <- "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='BIAD'"
 d <- query.database(sql.command = sql.command, conn=conn)
-
 sql.command <- "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_schema='BIAD';"	
 d.cols <- query.database(sql.command = sql.command, conn=conn)
 #-----------------------------------------------------------------------------------------
@@ -18,9 +21,11 @@ lookup <- zoptions[!zoptions%in%copy]
 standard <- subset(d, TABLE_NAME%in%standard)
 standard <- subset(standard, TABLE_ROWS>10)
 #-----------------------------------------------------------------------------------------
-# delete all existing templates
+# folder for all csv files
+folder <- '../tools/templates'
 #-----------------------------------------------------------------------------------------
-unlink("../tools/templates/*")
+# delete all existing templates
+unlink(paste0(folder, '/*'))
 #-----------------------------------------------------------------------------------------
 # create new templates
 #-----------------------------------------------------------------------------------------
@@ -47,7 +52,7 @@ for(n in 1:N){
 	i <- grepl('do not manually add value',tolower(sub$COLUMN_COMMENT))
 	example[1,i] <- NA
 	# ensure a BOM is included!
-	write.csv.utf8.BOM(df = example, filename = paste('../tools/templates/',table,'.csv', sep=''))
+	write.csv.utf8.BOM(df = example, filename = paste(folder,'/',table,'.csv', sep=''))
 	}
 #--------------------------------------------------------------------------------------
 disconnect()
