@@ -42,13 +42,9 @@ zoptions.column.data <- subset(d.cols, TABLE_NAME%in%zoptions.table.data$TABLE_N
 # create new html
 #-----------------------------------------------------------------------------------------
 create.html.for.table.comments(table.data=standard.table.data, column.data=standard.column.data, file=paste0(folder,'/row_counts.html'))
-print('row_counts.html complete')
 create.html.for.row.comments(table.data=standard.table.data, column.data=standard.column.data, file=paste0(folder,'/table_summary.html'))
-print('table_summary.html complete')
-create.html.for.row.comments(table.data=zoptions.table.data, column.data=zoptions.column.data, file=paste0(folder,'/zoptions_summary.html'))
-print('zoptions_summary.html complete')
+# create.html.for.row.comments(table.data=zoptions.table.data, column.data=zoptions.column.data, file=paste0(folder,'/zoptions_summary.html'))
 create.html.for.templates(table.data=standard.table.data, file=paste0(folder,'/templates.html'))
-print('templates.html complete')
 #--------------------------------------------------------------------------------------
 
 

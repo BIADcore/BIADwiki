@@ -1,11 +1,5 @@
 #--------------------------------------------------------------------------------------
-#--------------------------------------------------------------------------------------
-# # query any table with a primary key value, to get all direct relationships 
-#--------------------------------------------------------------------------------------
-#--------------------------------------------------------------------------------------
-# https://biadwiki.org/en/connectR
-# ensure you have installed BIADconnect
-# devtools::install_github("BIADcore/BIADconnect")
+# Move this example to biadwiki.org and delete file
 #--------------------------------------------------------------------------------------
 require(BIADconnect)
 conn  <-  init.conn()
