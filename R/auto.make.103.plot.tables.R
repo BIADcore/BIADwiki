@@ -2,10 +2,12 @@
 # Generate a bunch of examples of tables as images, for embedding in biadwiki.org
 # unclear what this is being used for, or if it is even necessary. Check biadwiki.org to investigate
 #-------------------------------------------------------------------------------
-library(gridExtra)
-library(svglite)
-tables <- c('Citations','PhaseCitation','Phases','PhaseTypes','Sites','zoptions_Types')
+require(gridExtra)
+require(svglite)
+require(BIADconnect)
 conn <- init.conn()
+#-------------------------------------------------------------------------------
+tables <- c('Citations','PhaseCitation','Phases','PhaseTypes','Sites','zoptions_Types')
 
 theme <- ttheme_minimal(
 	core = list(fg_params = list(hjust = 0, x = 0.1, fontsize = 18, col='blue')),

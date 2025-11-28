@@ -5,6 +5,7 @@
 # It works, but if an editor changes the preferred edit mode from raw html to one of the the other options, these iframes are lost.
 # A better solution is required, which is likely to come in time from wiki.js development
 #-----------------------------------------------------------------------------------------
+require(BIADconnect)
 conn <- init.conn()
 sql.command <- "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='BIAD'"
 d <- query.database(sql.command = sql.command, conn=conn)

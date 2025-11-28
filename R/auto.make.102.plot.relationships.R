@@ -1,8 +1,9 @@
 #----------------------------------------------------------------------------------
 # script to plot database relationships
 #----------------------------------------------------------------------------------
-library(rsvg)
-library(DiagrammeRsvg)
+require(rsvg)
+require(DiagrammeRsvg)
+require(BIADconnect)
 #----------------------------------------------------------------------------------
 # Pull all foreign keys
 conn <- init.conn()

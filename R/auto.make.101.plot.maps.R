@@ -6,8 +6,10 @@ require(rnaturalearthdata)
 require(maps)
 require(mapdata)
 require(svglite)
+require(BIADconnect)
 #-----------------------------------------------------------------
-# sizes for standard maps
+# overheads
+conn <- init.conn()
 height <- 8
 width <- 15
 folder <- '../tools/plots'

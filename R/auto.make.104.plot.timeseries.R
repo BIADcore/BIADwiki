@@ -1,8 +1,7 @@
 #--------------------------------------------------------------------------------------------------
-# Needs fixing!! Then change to running daily
-# Should output .svgs
-# should then be embedded into BIADwiki plots page
-# merges are throwing warnings as the queries are pulling all columns, so many are in common
+# Some fun timeseries plots
+# These outputs need embedding in the biadwiki.org plots page.
+# the function common.plotter really should have a filename argument
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 # Time dependent plots
@@ -14,6 +13,7 @@ require(rnaturalearthdata)
 require(maps)
 require(mapdata)
 require(svglite)
+require(BIADconnect)
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 conn <- init.conn()
