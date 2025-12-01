@@ -46,7 +46,15 @@ create.html.for.table.comments(table.data=standard.table.data, column.data=stand
 create.html.for.row.comments(table.data=standard.table.data, column.data=standard.column.data, file=paste0(folder,'/table_summary.html'))
 # create.html.for.row.comments(table.data=zoptions.table.data, column.data=zoptions.column.data, file=paste0(folder,'/zoptions_summary.html'))
 create.html.for.templates(table.data=standard.table.data, file=paste0(folder,'/templates.html'))
-#--------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
+# create html for map plots
+#-----------------------------------------------------------------------------------------
+all.maps <- list.files('../tools/plots', pattern='map')
+timeslice.i <- grepl('timeslice',all.maps)
+timeslice.maps <- all.maps[timeslice.i]
+maps <- all.maps[!timeslice.i]
+maps <- maps[maps!='map.svg']
 
-
-
+create.html.for.maps(maps, file==paste0(folder,'/testing1.html'))
+create.html.for.maps(timeslice.maps, file==paste0(folder,'/testing2.html'))
+#-----------------------------------------------------------------------------------------
