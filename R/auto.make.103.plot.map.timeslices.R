@@ -16,9 +16,9 @@ common.plotter <- function(dd, tablename, file, width=13){
 	height <- width /(cos(mean(ylim)/180*(pi)) * diff(xlim)/diff(ylim))
 	zposts <- choose.zposts(dd)
 	N <- length(zposts)-1
-	ncol <- 2
+	ncol <- 3
 	nrow <- ceiling(N/ncol)
-	svglite(file=file, width=width, height=height*nrow/2 )
+	svglite(file=file, width=width, height=height*nrow/ncol )
 	par(mfrow=c(nrow,ncol), mar=c(1,1,1,1))
 	for(n in 1:N){
 		i <- dd$date<=zposts[n] & dd$date>zposts[n+1]
