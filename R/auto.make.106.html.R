@@ -17,9 +17,6 @@ disconnect()
 # folder for all html files
 folder <- '../tools/html'
 #-----------------------------------------------------------------------------------------
-# delete all existing html
-unlink(paste0(folder, '/*'))
-#-----------------------------------------------------------------------------------------
 # get rid uninteresting common meta
 d.cols <- d.cols[!grepl('time_added|user_added|time_last_update|user_last_update',d.cols$COLUMN_NAME),]
 
@@ -47,14 +44,4 @@ create.html.for.row.comments(table.data=standard.table.data, column.data=standar
 # create.html.for.row.comments(table.data=zoptions.table.data, column.data=zoptions.column.data, file=paste0(folder,'/zoptions_summary.html'))
 create.html.for.templates(table.data=standard.table.data, file=paste0(folder,'/templates.html'))
 #-----------------------------------------------------------------------------------------
-# create html for map plots
-#-----------------------------------------------------------------------------------------
-all.maps <- list.files('../tools/plots', pattern='map')
-timeslice.i <- grepl('timeslice',all.maps)
-timeslice.maps <- all.maps[timeslice.i]
-maps <- all.maps[!timeslice.i]
-maps <- maps[maps!='map.svg']
 
-create.html.for.maps(maps, file=paste0(folder,'/testing1.html'))
-create.html.for.maps(timeslice.maps, file=paste0(folder,'/testing2.html'))
-#-----------------------------------------------------------------------------------------

@@ -51,12 +51,6 @@ d$date[i] <- d$reportedMidBP[i]
 # remove those still with no chronology
 d <- d[!is.na(d$date),]
 #-----------------------------------------------------------------
-# all phases
-#-----------------------------------------------------------------
-tablename='all'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
-common.plotter(dd=d, tablename=tablename, file=file)
-#-----------------------------------------------------------------
 # tables connected directly to phase
 #-----------------------------------------------------------------
 tables <- c('ABotIsotopes','ABotSamples','FaunalBiometrics','FaunalIsotopes','Graves','FaunalSpecies','MaterialCulture')
@@ -64,7 +58,7 @@ for(n in 1:length(tables)){
 	tablename <- tables[n]
 	tmp <- query.database(paste("SELECT * FROM `BIAD`.`",tablename,"`",sep=''), conn=conn)
 	dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
-	file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+	file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 	common.plotter(dd=dd, tablename=tablename, file=file)
 	}
 #-----------------------------------------------------------------
@@ -76,7 +70,7 @@ t2 <- subset(t2, !is.na(SampleID))
 tmp <- merge(t2, t1, by='SampleID') 
 dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
 tablename <- 'FaunalIsotopeSequences'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 common.plotter(dd=dd, tablename=tablename, file=file)
 #--------------------------------------------------------------------------------------------------
 t1 <- query.database("SELECT * FROM `BIAD`.`Graves`", conn=conn)
@@ -85,7 +79,7 @@ t2 <- subset(t2, !is.na(GraveID))
 tmp <- merge(t2, t1, by='GraveID')
 dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
 tablename <- 'GraveIndividuals'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 common.plotter(dd=dd, tablename=tablename, file=file)
 #--------------------------------------------------------------------------------------------------
 t1 <- query.database("SELECT * FROM `BIAD`.`Graves`", conn=conn)
@@ -95,7 +89,7 @@ tmp <- merge(t3, t2, by='IndividualID')
 tmp <- merge(tmp, t1, by='GraveID')
 dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
 tablename <- 'HumanIsotopes'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 common.plotter(dd=dd, tablename=tablename, file=file)
 #--------------------------------------------------------------------------------------------------
 t1 <- query.database("SELECT * FROM `BIAD`.`Graves`", conn=conn)
@@ -105,7 +99,7 @@ tmp <- merge(t3, t2, by='IndividualID')
 tmp <- merge(tmp, t1, by='GraveID')
 dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
 tablename <- 'Rites'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 common.plotter(dd=dd, tablename=tablename, file=file)
 #--------------------------------------------------------------------------------------------------
 sql.command <- "SELECT `Sites`.`SiteID`,`Longitude`,`Latitude`,`aDNAID`,`Phases`.`PhaseID` FROM `Sites`
@@ -116,7 +110,7 @@ WHERE `GraveIndividuals`.`aDNAID` IS NOT NULL;"
 tmp <- query.database(sql.command, conn=conn)
 dd <- subset(d, PhaseID%in%unique(tmp$PhaseID))
 tablename <- 'aDNA'
-file <- paste0(folder,'/',prefix,'.',tablename,'.svg')
+file <- tolower(paste0(folder,'/',prefix,'.',tablename,'.svg'))
 common.plotter(dd=dd, tablename=tablename, file=file)
 #--------------------------------------------------------------------------------------
 disconnect()
