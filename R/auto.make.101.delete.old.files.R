@@ -6,6 +6,9 @@
 unlink('../tools/html/*')
 
 # folder for all plots
-unlink('../tools/plos/*')
+unlink('../tools/plots/*')
+
+# folder for all csv templates
+unlink('../tools/templates/*')
 #-----------------------------------------------------------------------------------------
 

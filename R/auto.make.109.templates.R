@@ -25,9 +25,6 @@ standard <- subset(standard, TABLE_ROWS>10)
 # folder for all csv files
 folder <- '../tools/templates'
 #-----------------------------------------------------------------------------------------
-# delete all existing templates
-unlink(paste0(folder, '/*'))
-#-----------------------------------------------------------------------------------------
 # create new templates
 #-----------------------------------------------------------------------------------------
 N <- nrow(standard)
