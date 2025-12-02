@@ -40,7 +40,7 @@ for(n in 1:N){
 			mediaUpload = httr::upload_file(path = path[n], type = type[n]),
 			mediaUpload = '{"folderId":0}'
 			)
-		Sys.sleep(.3)
+		Sys.sleep(.2)
 
 		# Make the POST request
 		result <- httr::POST(url, headers, body = body)
