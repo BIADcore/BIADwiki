@@ -7,7 +7,7 @@ folder <- '../tools/plots'
 #-----------------------------------------------------------------
 # common plot function
 #-----------------------------------------------------------------
-common.map.plot.function <- function(d, file, width=14){
+common.map.plot.function <- function(d, file, width=13){
 	require(maps)
 	require(svglite)
 

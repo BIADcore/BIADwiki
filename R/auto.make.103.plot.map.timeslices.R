@@ -8,7 +8,7 @@ prefix <- 'timeslice.map'
 #-----------------------------------------------------------------
 # common functions
 #-----------------------------------------------------------------
-common.plotter <- function(dd, tablename, file, width=14){
+common.plotter <- function(dd, tablename, file, width=13){
 	require(maps)
 	require(svglite)
 	xlim <- range(dd$Longitude)
@@ -18,7 +18,7 @@ common.plotter <- function(dd, tablename, file, width=14){
 	N <- length(zposts)-1
 	ncol <- 2
 	nrow <- ceiling(N/ncol)
-	svglite(file=file, width=width/2, height=height*nrow )
+	svglite(file=file, width=width, height=height*nrow/2 )
 	par(mfrow=c(nrow,ncol), mar=c(1,1,1,1))
 	for(n in 1:N){
 		i <- dd$date<=zposts[n] & dd$date>zposts[n+1]
