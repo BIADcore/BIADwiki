@@ -55,6 +55,6 @@ timeslice.maps <- all.maps[timeslice.i]
 maps <- all.maps[!timeslice.i]
 maps <- maps[maps!='map.svg']
 
-create.html.for.maps(maps, file==paste0(folder,'/testing1.html'))
-create.html.for.maps(timeslice.maps, file==paste0(folder,'/testing2.html'))
+create.html.for.maps(maps, file=paste0(folder,'/testing1.html'))
+create.html.for.maps(timeslice.maps, file=paste0(folder,'/testing2.html'))
 #-----------------------------------------------------------------------------------------
