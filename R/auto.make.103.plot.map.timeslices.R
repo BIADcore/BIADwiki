@@ -3,23 +3,22 @@
 #-----------------------------------------------------------------
 require(BIADconnect)
 conn <- init.conn()
-height <- 8
 folder <- '../tools/plots'
 prefix <- 'timeslice.map'
 #-----------------------------------------------------------------
 # common functions
 #-----------------------------------------------------------------
-common.plotter <- function(dd, tablename, file, height = 8){
+common.plotter <- function(dd, tablename, file, width=14){
 	require(maps)
 	require(svglite)
 	xlim <- range(dd$Longitude)
 	ylim <- range(dd$Latitude)
-	width <- cos(mean(ylim)/180*(pi)) * height * diff(xlim)/diff(ylim)
+	height <- width /(cos(mean(ylim)/180*(pi)) * diff(xlim)/diff(ylim))
 	zposts <- choose.zposts(dd)
 	N <- length(zposts)-1
-	ncol <- 3
+	ncol <- 2
 	nrow <- ceiling(N/ncol)
-	svglite(file=file, width=width*2*ncol/nrow, height=2*height )
+	svglite(file=file, width=width/2, height=height*nrow )
 	par(mfrow=c(nrow,ncol), mar=c(1,1,1,1))
 	for(n in 1:N){
 		i <- dd$date<=zposts[n] & dd$date>zposts[n+1]

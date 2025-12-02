@@ -7,7 +7,7 @@ folder <- '../tools/plots'
 #-----------------------------------------------------------------
 # common plot function
 #-----------------------------------------------------------------
-common.map.plot.function <- function(d, file, height=8){
+common.map.plot.function <- function(d, file, width=14){
 	require(maps)
 	require(svglite)
 
@@ -16,8 +16,7 @@ common.map.plot.function <- function(d, file, height=8){
 	y <- res$summary$Latitude
 	xlim <- range(d$Longitude)
 	ylim <- range(d$Latitude)
-	width <- cos(mean(ylim)/180*(pi)) * height * diff(xlim)/diff(ylim)
-
+	height <- width /(cos(mean(ylim)/180*(pi)) * diff(xlim)/diff(ylim))
 	svglite(file=file, width=width, height=height)
 	plot(NULL, xlim=xlim, ylim=ylim, frame.plot=FALSE, axes=FALSE, xlab='', ylab='')
 	map('world', xlim=xlim, ylim=ylim, col='grey90', add=TRUE, fill=TRUE, border='grey')
@@ -90,14 +89,14 @@ d <- query.database(sql.command = sql.command, conn=conn)
 file <- paste0(folder,'/map.human_isotopes.svg')
 common.map.plot.function(d, file)
 #-----------------------------------------------------------------
-# Faunal strontium
+# Faunal isotopes
 #-----------------------------------------------------------------
 sql.command <- "SELECT `Sites`.`SiteID`,`Longitude`,`Latitude`,`FaunIsoID` FROM `Sites`
 INNER JOIN `Phases` ON `Sites`.`SiteID`=`Phases`.`SiteID`
 INNER JOIN `FaunalIsotopes` ON `FaunalIsotopes`.`PhaseID`=`Phases`.`PhaseID`"
 
 d <- query.database(sql.command = sql.command, conn=conn)
-file <- paste0(folder,'/map.faunal_strontium.svg')
+file <- paste0(folder,'/map.faunal_isotopes.svg')
 common.map.plot.function(d, file)
 #-----------------------------------------------------------------
 # health
