@@ -3,5 +3,5 @@
 #------------------------------------------------------------------
 library(BIADconnect)
 source('../../BIADadmin/R/functions.R')
-run.scripts.in.this.folder(pattern='auto.make')
+run.scripts.in.this.folder(pattern='auto.make.108')
 #------------------------------------------------------------------
